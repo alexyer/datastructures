@@ -7,11 +7,14 @@
 
 #include <functional>
 #include <iostream>
+#include <queue>
 #include "binary_node.h"
 
 using std::ostream;
 using std::cout;
+using std::endl;
 using std::less;
+using std::queue;
 
 template <typename Object, typename Comparator=less<Object>>
 class BinarySearchTree {
@@ -56,6 +59,10 @@ public:
     void remove(const Object& x) {
         remove(x, root);
     };
+
+    void printTree() {
+        printTree(root);
+    }
 
 private:
     BinaryNode<Object> *root;
@@ -148,6 +155,29 @@ private:
             return new BinaryNode<Object>{t->element, clone(t->left), clone(t->right)};
         }
     };
+    void printTree(BinaryNode<Object> *t) {
+        if (t == nullptr) {
+            return;
+        }
+        queue<BinaryNode<Object>*> currentLevel, nextLevel;
+        currentLevel.push(t);
+        while (!currentLevel.empty()) {
+            auto currNode = currentLevel.front();
+            currentLevel.pop();
+
+            if (currNode != nullptr) {
+                cout << currNode->element << ' ';
+                nextLevel.push(currNode->left);
+                nextLevel.push(currNode->right);
+            } else {
+                cout << "_ ";
+            }
+            if (currentLevel.empty()) {
+                cout << endl;
+                std::swap(currentLevel, nextLevel);
+            }
+        }
+    }
 };
 
 #endif //DATASTRUCTURES_BST_H

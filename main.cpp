@@ -11,8 +11,11 @@ int main() {
     bst.insert(3);
     bst.insert(100);
     bst.insert(-100);
-    bst.remove(100);
+    bst.insert(24);
+    bst.insert(45);
+    bst.insert(434);
+    bst.insert(10);
 
-    cout << bst.findMax();
+    bst.printTree();
     return 0;
 }
