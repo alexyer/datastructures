@@ -3,5 +3,5 @@ project(datastructures)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp includes/bst.h)
+set(SOURCE_FILES main.cpp includes/bst.h includes/binary_node.h)
 add_executable(datastructures ${SOURCE_FILES})

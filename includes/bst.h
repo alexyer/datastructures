@@ -7,6 +7,7 @@
 
 #include <functional>
 #include <iostream>
+#include "binary_node.h"
 
 using std::ostream;
 using std::cout;
@@ -57,23 +58,12 @@ public:
     };
 
 private:
-    struct BinaryNode {
-        Object element;
-        BinaryNode* left;
-        BinaryNode* right;
-
-        BinaryNode(const Object& element, BinaryNode *left, BinaryNode *right) : element(element), left(left),
-                                                                                     right(right) {}
-        BinaryNode(Object&& element, BinaryNode* left, BinaryNode* right) : element(element), left(left),
-                                                                                right(right) {}
-    };
-
-    BinaryNode *root;
+    BinaryNode<Object> *root;
     Comparator isLessThan;
 
-    void insert(const Object& x, BinaryNode*& t) {
+    void insert(const Object& x, BinaryNode<Object>*& t) {
         if (t == nullptr) {
-            t = new BinaryNode{x, nullptr, nullptr};
+            t = new BinaryNode<Object>{x, nullptr, nullptr};
         } else if (isLessThan(x, t->element)) {
             insert(x, t->left);
         } else if (isLessThan(t->element, x)) {
@@ -81,9 +71,9 @@ private:
         }
     };
 
-    void insert(Object&& x, BinaryNode*& t) {
+    void insert(Object&& x, BinaryNode<Object>*& t) {
         if (t == nullptr) {
-            t = new BinaryNode{x, nullptr, nullptr};
+            t = new BinaryNode<Object>{x, nullptr, nullptr};
         } else if (isLessThan(x, t->element)) {
             insert(std::move(x), t->left);
         } else if (isLessThan(t->element, x)) {
@@ -91,7 +81,7 @@ private:
         }
     };
 
-    void remove(const Object& x, BinaryNode*& t) {
+    void remove(const Object& x, BinaryNode<Object>*& t) {
         if (t == nullptr) {
             return;
         }
@@ -110,7 +100,7 @@ private:
         }
     };
 
-    BinaryNode* findMin(BinaryNode* t) const {
+    BinaryNode<Object>* findMin(BinaryNode<Object>* t) const {
         if (t == nullptr) {
             return nullptr;
         }
@@ -120,7 +110,7 @@ private:
         return findMin(t->left);
     };
 
-    BinaryNode* findMax(BinaryNode* t) const {
+    BinaryNode<Object>* findMax(BinaryNode<Object>* t) const {
         if (t == nullptr) {
             return nullptr;
         }
@@ -130,7 +120,7 @@ private:
         return findMax(t->right);
     };
 
-    bool contains(const Object& x, BinaryNode* t) const {
+    bool contains(const Object& x, BinaryNode<Object>* t) const {
         if (t == nullptr) {
             return false;
         } else if (isLessThan(x, t->element)) {
@@ -142,7 +132,7 @@ private:
         }
     };
 
-    void makeEmpty(BinaryNode*& t) {
+    void makeEmpty(BinaryNode<Object>*& t) {
         if (t != nullptr) {
             makeEmpty(t->left);
             makeEmpty(t->right);
@@ -151,11 +141,11 @@ private:
         t = nullptr;
     };
 
-    BinaryNode* clone(BinaryNode* t) const {
+    BinaryNode<Object>* clone(BinaryNode<Object>* t) const {
         if (t == nullptr) {
             return nullptr;
         } else {
-            return new BinaryNode{t->element, clone(t->left), clone(t->right)};
+            return new BinaryNode<Object>{t->element, clone(t->left), clone(t->right)};
         }
     };
 };
