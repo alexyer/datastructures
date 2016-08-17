@@ -20,7 +20,7 @@ template <typename Object, typename Comparator=less<Object>>
 class BinarySearchTree {
 public:
     BinarySearchTree() : root(nullptr) {};
-    BinarySearchTree(const BinarySearchTree& rhs) : root(nullptr) {
+    BinarySearchTree(const BinarySearchTree &rhs) : root(nullptr) {
         root = clone(rhs.root);
     };
 
@@ -36,7 +36,7 @@ public:
         return findMax(root)->element;
     };
 
-    bool contains(const Object& x) const {
+    virtual bool contains(const Object& x) const {
         return contains(x, root);
     };
 
@@ -56,7 +56,7 @@ public:
         insert(x, root);
     };
 
-    void remove(const Object& x) {
+    virtual void remove(const Object& x) {
         remove(x, root);
     };
 

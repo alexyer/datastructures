@@ -11,6 +11,7 @@ struct BinaryNode {
     BinaryNode* left;
     BinaryNode* right;
 
+    BinaryNode() {};
     BinaryNode(const Object& element, BinaryNode *left, BinaryNode *right) : element(element), left(left),
                                                                              right(right) {}
     BinaryNode(Object&& element, BinaryNode* left, BinaryNode* right) : element(element), left(left),
