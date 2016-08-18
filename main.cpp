@@ -1,31 +1,20 @@
 #include <iostream>
+#include <vector>
 #include "includes/bst.h"
 #include "includes/avl.h"
+#include "includes/algorithms/insertions_sort.h"
 
 using std::cout;
 using std::endl;
+using std::vector;
 
 int main() {
-    AvlTree<int> avl;
+    vector<int> vec = {4, 2, 6, 10, 1};
 
-    avl.insert(2);
-    avl.insert(3);
-    avl.insert(100);
-    avl.insert(-100);
-    avl.insert(24);
-    avl.insert(45);
-    avl.insert(434);
-    avl.insert(10);
-    avl.insert(34);
-    avl.insert(56);
-    avl.insert(86);
+    insertionSort(vec);
 
-    cout << "Min: " << avl.findMin() << " Max: " << avl.findMax() << endl;
-
-    cout << avl.contains(2) << endl;
-    avl.remove(2);
-    cout << avl.contains(2) << endl;
-
-    avl.printTree();
+    for (auto i : vec) {
+        cout << i << ' ';
+    }
     return 0;
 }
