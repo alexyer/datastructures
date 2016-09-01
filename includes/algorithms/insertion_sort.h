@@ -7,6 +7,7 @@
 
 #include <vector>
 
+using std::less;
 using std::vector;
 
 template <typename Iterator, typename Comparator>
