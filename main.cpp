@@ -1,16 +1,14 @@
 #include <iostream>
 #include <vector>
-#include "includes/algorithms/heap_sort.h"
-#include "includes/algorithms/merge_sort.h"
-#include "includes/algorithms/quick_sort.h"
+#include "includes/DisjSets.h"
 
 using std::cout;
 using std::vector;
 
 int main() {
-    vector<int> vec = {31, 41, 59, 26, 53, 58, 97};
-    quickSort(vec);
-    for (auto i : vec) {
-        cout << i << ' ';
-    }
+    DisjSets d(10);
+    d.unionSets(2, 3);
+    d.unionSets(2, 4);
+    d.unionSets(3, 5);
+    cout << d.find(5);
 }
