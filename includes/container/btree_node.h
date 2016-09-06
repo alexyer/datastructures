@@ -1,7 +1,3 @@
-//
-// Created by pat on 18.08.16.
-//
-
 #ifndef DATASTRUCTURES_BTREE_NODE_H
 #define DATASTRUCTURES_BTREE_NODE_H
 

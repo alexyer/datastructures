@@ -1,10 +1,7 @@
-//
-// Created by pat on 17.08.16.
-//
-
 #ifndef DATASTRUCTURES_AVL_NODE_H
 #define DATASTRUCTURES_AVL_NODE_H
 
+#include <utility>
 #include "binary_node.h"
 
 template <typename Object>

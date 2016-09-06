@@ -6,9 +6,9 @@
 using std::vector;
 
 
-class DisjSets {
+class disj_sets {
 public:
-    explicit DisjSets(int numElements);
+    explicit disj_sets(int numElements);
 
     int find(int x) const;
     void unionSets(int root1, int root2);

@@ -1,7 +1,3 @@
-//
-// Created by pat on 17.08.16.
-//
-
 #ifndef DATASTRUCTURES_BINARY_NODE_H
 #define DATASTRUCTURES_BINARY_NODE_H
 

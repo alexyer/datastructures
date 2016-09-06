@@ -1,7 +1,3 @@
-//
-// Created by pat on 17.08.16.
-//
-
 #ifndef DATASTRUCTURES_AVL_H_H
 #define DATASTRUCTURES_AVL_H_H
 

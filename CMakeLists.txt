@@ -3,5 +3,5 @@ project(datastructures)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp includes/bst.h includes/binary_node.h includes/avl.h includes/avl_node.h includes/algorithms/insertion_sort.h includes/btree_node.h includes/btree.h includes/algorithms/heap_sort.h includes/algorithms/merge_sort.h includes/algorithms/quick_sort.h impl/DisjSets.cpp includes/DisjSets.h includes/chaining_hashmap.h)
+set(SOURCE_FILES main.cpp includes/container/bst.h includes/container/binary_node.h includes/container/avl.h includes/container/avl_node.h includes/algorithm/insertion_sort.h includes/container/btree_node.h includes/container/btree.h includes/algorithm/heap_sort.h includes/algorithm/merge_sort.h includes/algorithm/quick_sort.h impl/disj_sets.cpp includes/container/disj_sets.h includes/container/chaining_hashmap.h)
 add_executable(datastructures ${SOURCE_FILES})

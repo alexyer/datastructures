@@ -1,7 +1,3 @@
-//
-// Created by pat on 16.08.16.
-//
-
 #ifndef DATASTRUCTURES_BST_H
 #define DATASTRUCTURES_BST_H
 
