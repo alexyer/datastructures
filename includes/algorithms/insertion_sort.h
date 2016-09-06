@@ -6,6 +6,7 @@
 #define DATASTRUCTURES_INSERTIONS_SORT_H
 
 #include <vector>
+#include <functional>
 
 using std::less;
 using std::vector;

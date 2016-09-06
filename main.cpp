@@ -1,14 +1,19 @@
 #include <iostream>
 #include <vector>
-#include "includes/DisjSets.h"
+#include "includes/chaining_hashmap.h"
 
 using std::cout;
 using std::vector;
 
 int main() {
-    DisjSets d(10);
-    d.unionSets(2, 3);
-    d.unionSets(2, 4);
-    d.unionSets(3, 5);
-    cout << d.find(5);
+    ChainingHashMap<int, std::string> hash;
+    vector<std::string> v;
+
+    for (int i = 0; i < 1000000; ++i) {
+        hash.put(i, "test");
+    }
+
+    for (int i = 0; i < 1000000; ++i) {
+        v.push_back(hash.get(i));
+    }
 }

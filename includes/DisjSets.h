@@ -1,7 +1,3 @@
-//
-// Created by pat on 01.09.16.
-//
-
 #ifndef DATASTRUCTURES_DISJSETS_H
 #define DATASTRUCTURES_DISJSETS_H
 
