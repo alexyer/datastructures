@@ -18,7 +18,7 @@ auto median3(const Iterator& left, const Iterator& right) -> decltype(*left) {
         std::swap(*center, *right);
     }
 
-    std::swap(*center, *(right - 1));
+    std::swap(*center, *right);
 
     return *(right - 1);
 }
