@@ -5,58 +5,57 @@
 #ifndef DATASTRUCTURES_QUICKSORT_H
 #define DATASTRUCTURES_QUICKSORT_H
 
-#include <vector>
 #include "insertion_sort.h"
 
-using std::vector;
+template <typename Iterator>
+auto median3(const Iterator& left, const Iterator& right) -> decltype(*left) {
+    Iterator center = left;
+    std::advance(center, std::distance(left, right));
 
-template <typename Comparable>
-const Comparable& median3(vector<Comparable>& a, unsigned long left, unsigned long right) {
-    auto center = (left + right) / 2;
-
-    if (a[center] < a[left]) {
-        std::swap(a[left], a[center]);
+    if (*center < *left) {
+        std::swap(*left, *center);
     }
-    if (a[right] < a[left]) {
-        std::swap(a[left], a[right]);
+    if (*right < *left) {
+        std::swap(*left, *right);
     }
-    if (a[right] < a[center]) {
-        std::swap(a[center], a[right]);
+    if (*right < *center) {
+        std::swap(*center, *right);
     }
 
-    std::swap(a[center], a[right - 1]);
-    return a[right - 1];
+    std::swap(*center, *(right - 1));
+
+    return *(right - 1);
 }
 
-template <typename Comparable>
-void quickSort(vector<Comparable> &a, unsigned long left, unsigned long right) {
+template <typename Iterator, typename Comparator>
+void quickSort(const Iterator& left, const Iterator& right, Comparator lessThan) {
     if (left + 10 <= right) {
-        auto pivot = median3(a, left, right);
+        auto pivot = median3(left, right);
 
-        unsigned long i = left;
-        unsigned long j = right - 1;
+        auto i = left;
+        auto j = right - 1;
 
         for (;;) {
-            while (a[++i] < pivot) {}
-            while (pivot < a[--j]) {}
+            while (*++i < pivot) {}
+            while (pivot < *--j) {}
             if (i < j) {
-                std::swap(a[i], a[j]);
+                std::swap(*i, *j);
             } else {
                 break;
             }
         }
 
-        std::swap(a[i], a[right - 1]);
-        quickSort(a, left, i - 1);
-        quickSort(a, i + 1, right);
+        std::swap(*i, *(right - 1));
+        quickSort(left, i - 1, lessThan);
+        quickSort(i + 1, right, lessThan);
     } else {
-        insertionSort(a.begin(), a.end());
+        insertionSort(left, right);
     }
 }
 
-template <typename Comparable>
-void quickSort(vector<Comparable>& a) {
-    quickSort(a, 0, a.size() - 1);
+template <typename Iterator>
+void quickSort(const Iterator& begin, const Iterator& end) {
+    quickSort(begin, end, std::less<decltype(*begin)>{});
 }
 
 #endif //DATASTRUCTURES_QUICKSORT_H

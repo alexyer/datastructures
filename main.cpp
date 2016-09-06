@@ -1,17 +1,16 @@
 #include <iostream>
 #include <vector>
 #include "includes/chaining_hashmap.h"
+#include "includes/algorithms/quick_sort.h"
 
 using std::cout;
 using std::vector;
 
 int main() {
-    ChainingHashMap<std::string, std::string> hash;
-    vector<std::string> v;
+    vector<int> v = {1, 4, 2 ,10, 3};
+    quickSort(v.begin(), v.end());
 
-    for (int i = 0; i < 100; ++i) {
-        hash.put(std::to_string(i), "test");
+    for (auto i: v) {
+        std::cout << i << " ";
     }
-
-    hash.print();
 }
