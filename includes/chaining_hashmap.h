@@ -14,7 +14,8 @@ class ChainingHashMap {
 public:
     ChainingHashMap(size_t size = 64, double threshold = 0.75) : size{size},
                                                                  threshold{threshold},
-                                                                 buckets(size) {}
+                                                                 buckets(size),
+                                                                 count(0) {}
 
     void put(KeyObject key, ValObject val) {
         if (loadFactor() >= threshold) {
@@ -56,11 +57,22 @@ public:
         }
     }
 
+    void print() {
+        for (size_t i = 0; i < size; ++i) {
+            std::cout << i << ": ";
+
+            for (auto node : buckets[i]) {
+                std::cout << node.key << " " << node.val << " ";
+            }
+
+            std::cout << std::endl;
+        }
+    }
+
 
 private:
     void rehash() {
         size <<= 1;
-
         vector<Bucket> newBuckets(size);
 
         for (auto bucket : buckets) {
@@ -77,8 +89,8 @@ private:
         return hash(key) & (size - 1);
     }
 
-    inline double loadFactor() {
-        return (double) count / (double) size;
+    inline long double loadFactor() {
+        return (long double) count / (long double) size;
     }
 
     struct node {
@@ -92,7 +104,7 @@ private:
 
     typedef vector<node> Bucket;
 
-    double threshold;
+    long double threshold;
 
     size_t count;
     size_t size;

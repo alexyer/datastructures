@@ -6,14 +6,12 @@ using std::cout;
 using std::vector;
 
 int main() {
-    ChainingHashMap<int, std::string> hash;
+    ChainingHashMap<std::string, std::string> hash;
     vector<std::string> v;
 
-    for (int i = 0; i < 1000000; ++i) {
-        hash.put(i, "test");
+    for (int i = 0; i < 100; ++i) {
+        hash.put(std::to_string(i), "test");
     }
 
-    for (int i = 0; i < 1000000; ++i) {
-        v.push_back(hash.get(i));
-    }
+    hash.print();
 }
