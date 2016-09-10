@@ -13,5 +13,5 @@ download_project(
 
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
 
-add_executable(runUnitTests gtest.cpp algorithm_tests/insertion_sort_test.cpp algorithm_tests/sort_test.h)
+add_executable(runUnitTests gtest.cpp algorithm_tests/merge_sort_test.cpp algorithm_tests/insertion_sort_test.cpp algorithm_tests/sort_test.h)
 target_link_libraries(runUnitTests gtest gmock lib)
