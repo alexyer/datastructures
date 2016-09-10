@@ -1,7 +1,3 @@
-//
-// Created by pat on 18.08.16.
-//
-
 #ifndef DATASTRUCTURES_INSERTIONS_SORT_H
 #define DATASTRUCTURES_INSERTIONS_SORT_H
 
