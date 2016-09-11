@@ -12,10 +12,10 @@ using std::vector;
 template <typename KeyObject, typename ValObject>
 class ChainingHashMap {
 public:
-    ChainingHashMap(size_t size = 64, double threshold = 0.75) : size{size},
-                                                                 threshold{threshold},
-                                                                 buckets(size),
-                                                                 count(0) {}
+    ChainingHashMap(size_t size = 64, double threshold = 0.75) : threshold{threshold},
+                                                                 count(0),
+                                                                 size{size},
+                                                                 buckets(size) {}
 
     void put(KeyObject key, ValObject val) {
         if (loadFactor() >= threshold) {
@@ -34,14 +34,14 @@ public:
         }
     }
 
-    ValObject get(KeyObject key) {
+    const std::shared_ptr<ValObject> get(KeyObject key) {
         auto index = getIndex(key);
         auto bucketIndex = std::find(buckets[index].begin(), buckets[index].end(), key);
 
         if (bucketIndex == buckets[index].end()) {
             return nullptr;
         } else {
-            return (*bucketIndex).val;
+            return std::make_shared<ValObject>((*bucketIndex).val);
         }
     }
 

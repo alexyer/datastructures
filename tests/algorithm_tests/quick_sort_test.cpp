@@ -2,7 +2,7 @@
 #include "sort_test.h"
 #include "../../includes/algorithm/quick_sort.h"
 
-TEST_F(SortTest, TestQuickSort) {
+TEST_F(SortTest, DISABLED_TestQuickSort) {
     quickSort(sorted.begin(), sorted.end());
     ASSERT_THAT(sorted, testing::Eq(check));
 
