@@ -3,8 +3,8 @@ project(datastructures)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -Wall")
 
-set(SOURCE_FILES includes/container/bst.h includes/container/binary_node.h includes/container/avl.h includes/container/avl_node.h includes/algorithm/insertion_sort.h includes/container/btree_node.h includes/container/btree.h includes/algorithm/heap_sort.h includes/algorithm/merge_sort.h includes/algorithm/quick_sort.h impl/disj_sets.cpp includes/container/disj_sets.h includes/container/chaining_hashmap.h main.cpp)
-add_library(lib includes/container/bst.h includes/container/binary_node.h includes/container/avl.h includes/container/avl_node.h includes/algorithm/insertion_sort.h includes/container/btree_node.h includes/container/btree.h includes/algorithm/heap_sort.h includes/algorithm/merge_sort.h includes/algorithm/quick_sort.h impl/disj_sets.cpp includes/container/disj_sets.h includes/container/chaining_hashmap.h)
+set(SOURCE_FILES includes/container/bst.h includes/container/binary_node.h includes/container/avl.h includes/container/avl_node.h includes/algorithm/insertion_sort.h includes/container/btree_node.h includes/container/btree.h includes/algorithm/heap_sort.h includes/algorithm/merge_sort.h includes/algorithm/quick_sort.h impl/disj_sets.cpp includes/container/disj_sets.h includes/container/chaining_hashmap.h main.cpp includes/container/lock_based_queue.h)
+add_library(lib includes/container/bst.h includes/container/binary_node.h includes/container/avl.h includes/container/avl_node.h includes/algorithm/insertion_sort.h includes/container/btree_node.h includes/container/btree.h includes/algorithm/heap_sort.h includes/algorithm/merge_sort.h includes/algorithm/quick_sort.h impl/disj_sets.cpp includes/container/disj_sets.h includes/container/chaining_hashmap.h includes/container/lock_based_queue.h)
 add_executable(datastructures ${SOURCE_FILES})
 
 add_subdirectory(tests)
